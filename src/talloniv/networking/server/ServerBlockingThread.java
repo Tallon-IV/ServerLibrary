@@ -321,6 +321,8 @@ public class ServerBlockingThread implements IServer, IServerTask
 		for (int i = 0; i < serverTasks.size(); i++)
 		{
 			accept = serverTasks.get(i).OnConnect(client);
+			if (accept == false)
+				return accept;
 		}
 		return accept;
 	}
